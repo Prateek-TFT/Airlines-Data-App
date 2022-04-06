@@ -1,0 +1,95 @@
+#dataItem {
+  display: flex;
+  width: 80vw;
+  height: 5vh;
+  margin: 2px;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px gray;
+}
+.item {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding-left: 10px;
+  border: 1px solid black;
+  width: 15vw;
+  overflow-x: auto;
+}
+.itemTitle {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 15vw;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: rgb(43, 1, 43);
+  color: white;
+  border: 0;
+}
+.itemTitle1 {
+  align-items: center;
+  display: flex;
+  width: 10vw;
+  height: 100%;
+  padding-left: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: rgb(43, 1, 43);
+  color: white;
+  border: 0;
+}
+.item1 {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding-left: 10px;
+  border: 1px solid black;
+  width: 10vw;
+  overflow-x: auto;
+}
+#dataItem:nth-child(odd) {
+  background-color: rgb(244, 225, 255);
+}
+#dataItem:nth-child(even):hover {
+  background-color: rgb(244, 225, 255);
+}
+.item img {
+  height: 3vh;
+  position: initial;
+}
+#sorting_box {
+  width: 80vw;
+  height: 5vh;
+  border: 1px solid blue;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  #dataItem {
+    width: 90vw;
+  }
+  .itemTitle {
+    font-size: 0.8rem;
+  }
+  .item1 {
+    font-size: 0.8rem;
+  }
+  .item {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  #dataItem {
+    width: 90vw;
+  }
+  .itemTitle {
+    font-size: 0.6rem;
+  }
+  .item1 {
+    font-size: 0.6rem;
+  }
+  .item {
+    font-size: 0.6rem;
+  }
+}

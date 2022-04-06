@@ -1,0 +1,18 @@
+#dataTable {
+  display: flex;
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  #dataTable {
+    height: 75vh;
+  }
+}
+@media screen and (max-width: 320px) {
+  #dataTable {
+    height: 65vh;
+  }
+}
