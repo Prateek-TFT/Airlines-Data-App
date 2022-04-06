@@ -44,7 +44,7 @@ const reducer = (state, action) => {
   }
 };
 const Pagination = () => {
-  const [state, Dispatch] = useReducer(reducer, initialState);
+  const [state, localdispatch] = useReducer(reducer, initialState);
   const dispatch = useDispatch();
   const { totalPage, storedData } = useSelector((state) => state.Reducer);
   const [prevbtndisabled, setprevbtndisabled] = useState(false);
@@ -99,7 +99,7 @@ const Pagination = () => {
     }
   };
   const pageSelectHandler = (page) => {
-    Dispatch({ type: "selected", payload: page });
+    localdispatch({ type: "selected", payload: page });
     var myData = Object.keys(storedData);
     const data = myData
       .filter((item) => Number(item) === Number(page - 1))
@@ -117,20 +117,20 @@ const Pagination = () => {
   };
 
   const previousHandler = () => {
-    Dispatch({ type: "previous" });
+    localdispatch({ type: "previous" });
     pageSelectHandler(state.currentPage - 1);
   };
   const nextHandler = () => {
-    Dispatch({ type: "next" });
+    localdispatch({ type: "next" });
     pageSelectHandler(state.currentPage + 1);
   };
   const lastPageHandler = (page) => {
     pageSelectHandler(page);
-    Dispatch({ type: "last", payload: page });
+    localdispatch({ type: "last", payload: page });
   };
   const firstPageHandler = (page) => {
     pageSelectHandler(page);
-    Dispatch({ type: "first", payload: page });
+    localdispatch({ type: "first", payload: page });
   };
   return (
     <div id="pagination">
