@@ -1,7 +1,7 @@
 import { FETCHDATA, TOGGLESPINNER } from "./Action-type";
 const initialState = {
   storedData: {},
-  totalPage: null,
+  totalPage: 0,
   currentPage: 1,
   showSpinner: false,
 };

@@ -46,11 +46,10 @@ const reducer = (state, action) => {
 const Pagination = () => {
   const [state, Dispatch] = useReducer(reducer, initialState);
   const dispatch = useDispatch();
-  const totalPages = useSelector((state) => state.Reducer.totalPage);
+  const { totalPage, storedData } = useSelector((state) => state.Reducer);
   const [prevbtndisabled, setprevbtndisabled] = useState(false);
   const [nextbtndisabled, setnextbtndisabled] = useState(false);
   const Pages = [];
-  const storedData = useSelector((state) => state.Reducer.storedData);
 
   for (let index = state.start; index < state.end; index++) {
     Pages.push(index);
@@ -62,7 +61,7 @@ const Pagination = () => {
   useEffect(() => {
     if (state.start === 1) {
       setprevbtndisabled(true);
-    } else if (state.end === totalPages - 1) {
+    } else if (state.end === totalPage - 1) {
       setnextbtndisabled(true);
       setprevbtndisabled(false);
     } else {
@@ -108,7 +107,7 @@ const Pagination = () => {
     if (data) {
       const sendData = {
         data: storedData[data],
-        totalPage: totalPages,
+        totalPage: totalPage,
         currentPage: data,
       };
       dispatch(FetchData(sendData));
@@ -151,9 +150,7 @@ const Pagination = () => {
           </div>
         );
       })}
-      <p onClick={() => lastPageHandler(totalPages - 1)}>
-        ....{totalPages - 1}
-      </p>
+      <p onClick={() => lastPageHandler(totalPage - 1)}>....{totalPage - 1}</p>
       <button disabled={nextbtndisabled} onClick={nextHandler}>
         Next
       </button>
