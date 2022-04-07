@@ -100,15 +100,11 @@ const Pagination = () => {
   };
   const pageSelectHandler = (page) => {
     localdispatch({ type: "selected", payload: page });
-    var myData = Object.keys(storedData);
-    const data = myData
-      .filter((item) => Number(item) === Number(page - 1))
-      .shift();
-    if (data) {
+    if (storedData[page - 1]) {
       const sendData = {
-        data: storedData[data],
+        data: storedData[page - 1],
         totalPage: totalPage,
-        currentPage: data,
+        currentPage: page - 1,
       };
       dispatch(FetchData(sendData));
     } else {

@@ -8,15 +8,10 @@ const DataTable = () => {
   const { storedData, showSpinner, currentPage } = useSelector(
     (state) => state.Reducer
   );
-  var myData = Object.keys(storedData);
   let sendData = [];
-  const data = myData
-    .filter((item) => Number(item) === Number(currentPage))
-    .shift();
-  if (data) {
-    sendData = storedData[data];
+  if (storedData[currentPage]) {
+    sendData = storedData[currentPage];
   }
-
   return (
     <div id="dataTable">
       {showSpinner && <FadeLoader color={"rgb(43, 1, 43)"} loading={true} />}

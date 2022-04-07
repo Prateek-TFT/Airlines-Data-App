@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import "./Item.css";
 const DataItem = (props) => {
-  const {currentPage} = useSelector((state) => state.Reducer);
+  const { currentPage } = useSelector((state) => state.Reducer);
   return (
     <>
       {props.data.length === 0 ? (
